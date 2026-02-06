@@ -13,41 +13,50 @@
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.4) 100%);
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: 900px;
-    padding: 0 1rem;
+    max-width: 950px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .hero-title {
-    font-size: 5rem;
+    font-size: 5.5rem;
     font-weight: 900;
     line-height: 1;
     margin-bottom: 2rem;
-    color: #fff;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: var(--primary);
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
 }
 
 .hero-title span {
-    color: var(--secondary);
+    color: var(--accent);
     display: block;
     margin-top: 0.5rem;
 }
 
 .hero-subtitle {
-    font-size: 1.35rem;
-    max-width: 700px;
+    font-size: 1.4rem;
+    max-width: 750px;
     margin: 0 auto 3.5rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #1d211d;
     font-weight: 500;
 }
 
 @media (max-width: 768px) {
     .hero-title {
         font-size: 3.5rem;
+    }
+
+    .hero-content {
+        background: rgba(255, 255, 255, 0.4);
     }
 }
