@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Bike Tours | Premium eBike Tours Sri Lanka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #f4d03f;
+            --accent: #16a085;
+            --bg: #0a0f0a;
+            --text: #f0f4f0;
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .button {
+            padding: 0.9rem 2.2rem;
+            border-radius: 100px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .button-primary {
+            background-color: var(--secondary);
+            color: #000;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(244, 208, 63, 0.4);
+        }
+
+        .button-outline {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            margin-left: 1rem;
+        }
+
+        .button-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 1200px;
+            padding: 0.75rem 2.5rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 100px;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.3rem;
+            letter-spacing: 0.02em;
+            color: #fff;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%), url('public/hero-bg.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: 5.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 2rem;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-title span {
+            color: var(--secondary);
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            max-width: 750px;
+            margin: 0 auto 3.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+
+        /* Tours */
+        .tours {
+            padding: 120px 0;
+            background: #0d120d;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 span {
+            color: var(--secondary);
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .tour-card {
+            border-radius: 24px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .tour-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tour-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .tour-info {
+            padding: 2.5rem;
+        }
+
+        .tour-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-weight: 900;
+            color: var(--secondary);
+            font-size: 1.4rem;
+        }
+
+        footer {
+            padding: 80px 0;
+            background: #050805;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                width: 90%;
+                padding: 0.75rem 1.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="glass">
+        <div class="logo">WILD BIKE <span>TOURS</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#tours">Tours</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <a href="#contact" class="button button-primary" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Enquire</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Experience Sri Lanka <br><span>Like Never Before</span></h1>
+            <p class="hero-subtitle">Premium eBike adventures through the heart of paradise. Explore ancient ruins, lush
+                tea estates, and vibrant local life with expert guides.</p>
+            <div class="hero-btns">
+                <a href="#tours" class="button button-primary">Explore Tours</a>
+                <a href="#about" class="button button-outline">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tours" class="tours">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular <span>Tours</span></h2>
+                <p style="color: rgba(255,255,255,0.5); margin-top: 1rem;">Unforgettable journeys hand-crafted for the
+                    curious traveler.</p>
+            </div>
+            <div class="tour-grid">
+                <div class="tour-card glass">
+                    <img src="public/colombo.jpg" class="tour-img">
+                    <div class="tour-info">
+                        <h3>Colombo City Explorer</h3>
+                        <p style="color: rgba(255,255,255,0.6); margin-bottom: 2rem;">Navigate the historic streets and
+                            vibrant markets of the capital on two wheels.</p>
+                        <div style="display:flex; justify-content: space-between; align-items: center;">
+                            <span class="price">From $45</span>
+                            <button class="button button-primary"
+                                style="padding: 0.5rem 1.2rem; font-size: 0.75rem;">View Tour</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tour-card glass">
+                    <img src="public/sigiriya.jpg" class="tour-img">
+                    <div class="tour-info">
+                        <h3>Sigiriya Countryside</h3>
+                        <p style="color: rgba(255,255,255,0.6); margin-bottom: 2rem;">Cycle through ancient villages and
+                            scenic rice paddies around the Lion Rock.</p>
+                        <div style="display:flex; justify-content: space-between; align-items: center;">
+                            <span class="price">From $55</span>
+                            <button class="button button-primary"
+                                style="padding: 0.5rem 1.2rem; font-size: 0.75rem;">View Tour</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tour-card glass">
+                    <img src="public/ella.jpg" class="tour-img">
+                    <div class="tour-info">
+                        <h3>Ella Mountain Trails</h3>
+                        <p style="color: rgba(255,255,255,0.6); margin-bottom: 2rem;">Breathtaking views and hidden
+                            waterfalls in the cool hill country peaks.</p>
+                        <div style="display:flex; justify-content: space-between; align-items: center;">
+                            <span class="price">From $60</span>
+                            <button class="button button-primary"
+                                style="padding: 0.5rem 1.2rem; font-size: 0.75rem;">View Tour</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3 style="color:#fff; margin-bottom: 1rem;">WILD BIKE <span>TOURS</span></h3>
+        <p>&copy; 2026 Wild Bike Tours Sri Lanka. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
